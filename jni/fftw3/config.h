@@ -2,13 +2,13 @@
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* Define to compile in long-double precision. */
-//#define BENCHFFT_LDOUBLE 1
+/* #undef BENCHFFT_LDOUBLE */
+
+/* Define to compile in quad precision. */
+/* #undef BENCHFFT_QUAD */
 
 /* Define to compile in single precision. */
-//#define BENCHFFT_SINGLE 1
-
-/* extra CFLAGS for codelets */
-#define CODELET_OPTIM ""
+/* #undef BENCHFFT_SINGLE */
 
 /* Define to one of `_getb67', `GETB67', `getb67' for Cray-2 and Cray-YMP
    systems. This function is required for `alloca.c' support on those systems.
@@ -56,8 +56,14 @@
 /* Define to compile in long-double precision. */
 /* #undef FFTW_LDOUBLE */
 
+/* Define to compile in quad precision. */
+/* #undef FFTW_QUAD */
+
+/* Define to enable pseudorandom estimate planning for debugging. */
+/* #undef FFTW_RANDOM_ESTIMATOR */
+
 /* Define to compile in single precision. */
-//#define FFTW_SINGLE 1
+/* #undef FFTW_SINGLE */
 
 /* Define to 1 if you have the `abort' function. */
 #define HAVE_ABORT 1
@@ -75,11 +81,29 @@
 /* Define to 1 if you have the <altivec.h> header file. */
 /* #undef HAVE_ALTIVEC_H */
 
+/* Define if you have enabled the CNTVCT cycle counter on ARMv7a */
+/* #undef HAVE_ARMV7A_CNTVCT */
+
+/* Define if you have enabled the cycle counter on ARMv8 */
+/* #undef HAVE_ARMV8CC */
+
+/* Define if you have enabled the CNTVCT_EL0 cycle counter on ARMv8 */
+/* #undef HAVE_ARMV8_CNTVCT_EL0 */
+
+/* Define to enable AVX optimizations. */
+/* #undef HAVE_AVX */
+
+/* Define to enable AVX2 optimizations. */
+/* #undef HAVE_AVX2 */
+
+/* Define to enable AVX512 optimizations. */
+/* #undef HAVE_AVX512 */
+
+/* Define to enable 128-bit FMA AVX optimization */
+/* #undef HAVE_AVX_128_FMA */
+
 /* Define to 1 if you have the `BSDgettimeofday' function. */
 /* #undef HAVE_BSDGETTIMEOFDAY */
-
-/* Define to enable optimizations for the Cell Broadband Engine */
-/* #undef HAVE_CELL */
 
 /* Define to 1 if you have the `clock_gettime' function. */
 #define HAVE_CLOCK_GETTIME 1
@@ -93,6 +117,10 @@
 /* Define to 1 if you have the declaration of `cosl', and to 0 if you don't.
    */
 #define HAVE_DECL_COSL 0
+
+/* Define to 1 if you have the declaration of `cosq', and to 0 if you don't.
+   */
+#define HAVE_DECL_COSQ 0
 
 /* Define to 1 if you have the declaration of `drand48', and to 0 if you
    don't. */
@@ -110,6 +138,14 @@
    */
 #define HAVE_DECL_SINL 0
 
+/* Define to 1 if you have the declaration of `sinq', and to 0 if you don't.
+   */
+#define HAVE_DECL_SINQ 0
+
+/* Define to 1 if you have the declaration of `srand48', and to 0 if you
+   don't. */
+#define HAVE_DECL_SRAND48 0
+
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #define HAVE_DLFCN_H 1
 
@@ -121,6 +157,12 @@
 
 /* Define if you have a machine with fused multiply-add */
 /* #undef HAVE_FMA */
+
+/* Define to enable generic (gcc) 128-bit SIMD optimizations. */
+/* #undef HAVE_GENERIC_SIMD128 */
+
+/* Define to enable generic (gcc) 256-bit SIMD optimizations. */
+/* #undef HAVE_GENERIC_SIMD256 */
 
 /* Define to 1 if you have the `gethrtime' function. */
 /* #undef HAVE_GETHRTIME */
@@ -140,17 +182,17 @@
 /* Define if the isnan() function/macro is available. */
 #define HAVE_ISNAN 1
 
+/* Define to enable KCVI optimizations. */
+/* #undef HAVE_KCVI */
+
 /* Define to 1 if you have the <libintl.h> header file. */
 /* #undef HAVE_LIBINTL_H */
 
 /* Define to 1 if you have the `m' library (-lm). */
 #define HAVE_LIBM 1
 
-/* Define to 1 if you have the `spe' library (-lspe). */
-/* #undef HAVE_LIBSPE */
-
-/* Define to 1 if you have the `spe2' library (-lspe2). */
-/* #undef HAVE_LIBSPE2 */
+/* Define to 1 if you have the `quadmath' library (-lquadmath). */
+/* #undef HAVE_LIBQUADMATH */
 
 /* Define to 1 if you have the <limits.h> header file. */
 #define HAVE_LIMITS_H 1
@@ -176,16 +218,16 @@
 /* Define to 1 if you have the `memset' function. */
 #define HAVE_MEMSET 1
 
-/* Define to enable MIPS paired-single optimizations. */
-/* #undef HAVE_MIPS_PS */
-
 /* Define to enable use of MIPS ZBus cycle-counter. */
 /* #undef HAVE_MIPS_ZBUS_TIMER */
 
 /* Define if you have the MPI library. */
 /* #undef HAVE_MPI */
 
-/* Define to enable OpenMP */
+/* Define to enable ARM NEON optimizations. */
+/* #undef HAVE_NEON */
+
+/* Define if OpenMP is enabled */
 /* #undef HAVE_OPENMP */
 
 /* Define to 1 if you have the `posix_memalign' function. */
@@ -206,10 +248,7 @@
 /* Define to 1 if you have the `sqrt' function. */
 #define HAVE_SQRT 1
 
-/* Define to enable SSE optimizations. */
-/* #undef HAVE_SSE */
-
-/* Define to enable SSE2 optimizations. */
+/* Define to enable SSE/SSE2 optimizations. */
 /* #undef HAVE_SSE2 */
 
 /* Define to 1 if you have the <stddef.h> header file. */
@@ -260,8 +299,8 @@
 /* Define to 1 if you have the `vprintf' function. */
 #define HAVE_VPRINTF 1
 
-/* Define to 1 if you have the <xmmintrin.h> header file. */
-/* #undef HAVE_XMMINTRIN_H */
+/* Define to enable IBM VSX optimizations. */
+/* #undef HAVE_VSX */
 
 /* Define to 1 if you have the `_mm_free' function. */
 /* #undef HAVE__MM_FREE */
@@ -272,8 +311,7 @@
 /* Define if you have the UNICOS _rtc() intrinsic. */
 /* #undef HAVE__RTC */
 
-/* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
+/* Define to the sub-directory where libtool stores uninstalled libraries. */
 #define LT_OBJDIR ".libs/"
 
 /* Name of package */
@@ -286,13 +324,16 @@
 #define PACKAGE_NAME "fftw"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "fftw 3.2.2"
+#define PACKAGE_STRING "fftw 3.3.5"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "fftw"
 
+/* Define to the home page for this package. */
+#define PACKAGE_URL ""
+
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "3.2.2"
+#define PACKAGE_VERSION "3.3.5"
 
 /* Define to necessary symbol if this constant uses a non-standard name on
    your system. */
@@ -300,6 +341,9 @@
 
 /* The size of `double', as computed by sizeof. */
 #define SIZEOF_DOUBLE 8
+
+/* The size of `fftw_r2r_kind', as computed by sizeof. */
+#define SIZEOF_FFTW_R2R_KIND 4
 
 /* The size of `float', as computed by sizeof. */
 #define SIZEOF_FLOAT 4
@@ -312,6 +356,9 @@
 
 /* The size of `long long', as computed by sizeof. */
 #define SIZEOF_LONG_LONG 8
+
+/* The size of `MPI_Fint', as computed by sizeof. */
+/* #undef SIZEOF_MPI_FINT */
 
 /* The size of `ptrdiff_t', as computed by sizeof. */
 #define SIZEOF_PTRDIFF_T 4
@@ -334,9 +381,9 @@
 /* If using the C implementation of alloca, define if you know the
    direction of stack growth for your system; otherwise it will be
    automatically deduced at runtime.
-	STACK_DIRECTION > 0 => grows toward higher addresses
-	STACK_DIRECTION < 0 => grows toward lower addresses
-	STACK_DIRECTION = 0 => direction of growth unknown */
+   STACK_DIRECTION > 0 => grows toward higher addresses
+   STACK_DIRECTION < 0 => grows toward lower addresses
+   STACK_DIRECTION = 0 => direction of growth unknown */
 /* #undef STACK_DIRECTION */
 
 /* Define to 1 if you have the ANSI C header files. */
@@ -345,14 +392,11 @@
 /* Define to 1 if you can safely include both <sys/time.h> and <time.h>. */
 #define TIME_WITH_SYS_TIME 1
 
-/* Define if we have and are using OpenMP multithreading directives */
-/* #undef USING_OPENMP_THREADS */
-
 /* Define if we have and are using POSIX threads. */
 /* #undef USING_POSIX_THREADS */
 
 /* Version number of package */
-#define VERSION "3.2.2"
+#define VERSION "3.3.5"
 
 /* Use common Windows Fortran mangling styles for the Fortran interfaces. */
 /* #undef WINDOWS_F77_MANGLING */
@@ -361,9 +405,9 @@
    */
 /* #undef WITH_G77_WRAPPERS */
 
-/* Use our own 16-byte aligned malloc routine; mainly helpful for Windows
-   systems lacking aligned allocation system-library routines. */
-/* #undef WITH_OUR_MALLOC16 */
+/* Use our own aligned malloc routine; mainly helpful for Windows systems
+   lacking aligned allocation system-library routines. */
+/* #undef WITH_OUR_MALLOC */
 
 /* Use low-precision timers, making planner very slow */
 /* #undef WITH_SLOW_TIMER */
@@ -379,4 +423,3 @@
 
 /* Define to `unsigned int' if <sys/types.h> does not define. */
 /* #undef size_t */
-

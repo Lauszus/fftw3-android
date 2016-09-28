@@ -3,6 +3,7 @@ sudo: false
 before_script:
   - git clone --depth 1 https://github.com/urho3d/android-ndk.git
   - export ANDROID_NDK_HOME=$(pwd)/android-ndk
+  - export PATH=$PATH:$ANDROID_NDK_HOME
 
 script:
-  $ANDROID_NDK_HOME/ndk-build
+  ./build.sh
