@@ -2,7 +2,7 @@
 # Script used to generate the sources.mk files and then build the project.
 
 for d in `find jni/fftw3 -type d`; do
-    sources=$(find "$d" -maxdepth 1 -type f -name '*.c' | rev | cut -f1 -d'/' | rev | tr '\n' ' ') # Find all .c files, extract filename and replace new line with space
+    sources=$(find "$d" -maxdepth 1 -type f -name '*.c' | rev | cut -f1 -d'/' | rev | sort | tr '\n' ' ') # Find all .c files, extract filename, sort them and replace new line with space
     if [ -n "$sources" ]; then # No sources found in directory
         echo "\nDirectory: $d"
         echo "Sources: $sources"
