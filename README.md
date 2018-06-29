@@ -1,8 +1,8 @@
-# fftw3 for Android
+# FFTW3 for Android
 _________
 [![Build Status](https://travis-ci.org/Lauszus/fftw3-android.svg?branch=master)](https://travis-ci.org/Lauszus/fftw3-android)
 
-Repository for compiling [fftw3](https://github.com/FFTW/fftw3) on Android. Based on the following project: <https://github.com/sfomra/FFTW3_MOD-for-Android>.
+Repository for compiling [FFTW3](http://www.fftw.org/) on Android. Based on the following project: <https://github.com/sfomra/FFTW3_MOD-for-Android>.
 
 The library can then be included as a static library in another project. An example Android.mk can be seen below:
 
@@ -25,5 +25,15 @@ include $(BUILD_SHARED_LIBRARY)
 ```
 
 Where the include directory ```$(LOCAL_PATH)/fftw3/include``` simply contains [fftw3.h](jni/fftw3/api/fftw3.h) and ```$(LOCAL_PATH)/fftw3/lib``` contains the static libraries for each architecture (x86_64, armeabi, armeabi-v7a etc) compiled using this project.
+
+### Single-precision 
+
+If you want to compile a single-precision version of FFTW you need add the following defines to [config.h](jni/fftw3/config.h)
+
+```C
+#define BENCHFFT_SINGLE 1
+#define FFTW_SINGLE 1
+```
+Then follow the intructions at: <http://www.fftw.org/fftw3_doc/Precision.html#Precision>.
 
 For more information send me an email at <lauszus@gmail.com>.
