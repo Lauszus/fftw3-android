@@ -2,6 +2,13 @@ language: android
 
 sudo: false
 
+android:
+  components:
+    - tools
+    - platform-tools
+    - extra-google-m2repository
+    - extra-android-m2repository
+
 install:
   - echo y | sdkmanager "ndk-bundle"
 
