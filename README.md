@@ -4,6 +4,12 @@ _________
 
 Repository for compiling [FFTW3](http://www.fftw.org/) on Android. Based on the following project: <https://github.com/sfomra/FFTW3_MOD-for-Android>.
 
+In order to built this project you need to download and install [Android NDK](https://developer.android.com/studio/projects/add-native-code.html#download-ndk). Then simply run the following command to build FFTW3:
+
+```bash
+./build.sh
+```
+
 The library can then be included as a static library in another project. An example Android.mk can be seen below:
 
 ```Makefile
