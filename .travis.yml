@@ -1,9 +1,12 @@
+language: android
+
 sudo: false
 
+install:
+  - echo y | sdkmanager "ndk-bundle"
+
 before_script:
-  - git clone --depth 1 https://github.com/urho3d/android-ndk.git
-  - export ANDROID_NDK_HOME=$(pwd)/android-ndk
-  - export PATH=$PATH:$ANDROID_NDK_HOME
+  - export ANDROID_NDK_HOME="$ANDROID_HOME/ndk-bundle"
 
 script:
   ./build.sh
